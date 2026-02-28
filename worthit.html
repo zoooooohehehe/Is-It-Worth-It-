@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Is It Worth It?</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #ffa5c0;
+      text-align: center;
+      padding: 30px;
+    }
+    .card {
+      background: rgb(255, 0, 85);
+      width: 350px;
+      margin: auto;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    input, select, button {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .result {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Is It Worth It? 🤔</h1>
+
+<div class="card">
+  <input type="text" id="product" placeholder="Enter product name">
+
+  <input type="number" id="price" placeholder="Enter price (₹)">
+  
+  <select id="usage">
+    <option value="10">Very Often (10/week)</option>
+    <option value="5">Sometimes (5/week)</option>
+    <option value="2">Rarely (2/week)</option>
+  </select>
+
+  <input type="number" id="weeks" placeholder="Number of weeks you plan to use">
+
+  <button onclick="calculate()">Calculate</button>
+
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+function calculate() {
+  const price = parseFloat(document.getElementById("price").value);
+  const usesPerWeek = parseFloat(document.getElementById("usage").value);
+  const weeks = parseFloat(document.getElementById("weeks").value);
+
+  if (!price || !usesPerWeek || !weeks || weeks <= 0) {
+    document.getElementById("result").innerText = "Enter valid values!";
+    return;
+  }
+
+  const totalUses = usesPerWeek * weeks;
+  const costPerUse = price / totalUses;
+
+  let verdict = "";
+  if (costPerUse < 50) verdict = "Totally worth it!!!! 👍";
+  else if (costPerUse <= 150) verdict = "Probably worth it ig....🤔";
+  else verdict = "Totally Not Worth it!!! ❌";
+
+  document.getElementById("result").innerHTML =
+    `Cost per use: ₹${costPerUse.toFixed(2)} per use/week<br>${verdict}`;
+}
+</script>
+
+</body>
+</html>
