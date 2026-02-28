@@ -18,6 +18,36 @@
       transition: background 0.8s ease;
       min-height: 100vh;
     }
+.flower{
+  
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      bottom: 25px;
+      left: 25px;
+      transform: rotate(15deg);
+      animation: stickerFloat 3s infinite ease-in-out;
+      z-index: 10;
+      object-fit: contain;
+    }
+
+    @keyframes stickerFloat {
+      0%, 100% { transform: rotate(15deg) translateY(0); }
+      50% { transform: rotate(20deg) translateY(-15px); }
+    }
+  .cash{
+    bottom:10px;
+    right:25px;
+    width:60px;
+  }
+   .globe
+    
+{
+    :10px;
+    right:25px;
+    width:60px;
+      
+    }
 
     /* --- TITLE ANIMATIONS --- */
     h1 {
@@ -116,6 +146,8 @@
 <body onload="loadHistory()">
 
   <h1>Is It Worth It? 🤔</h1>
+<img src="assets/stickers.png" class="flower" id="userSticker" alt="✨">
+<img src="assets\cash.png" class="cash" id="userSticker" alt="✨">
 
   <div id="choiceScreen">
     <div class="choice-container">
