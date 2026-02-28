@@ -6,368 +6,268 @@
     :root {
       --bg-color: #ffa5c0;
       --card-color: rgb(255, 0, 85);
+      --text-main: #ff0055;
+      --winner-glow: #ffd700;
     }
 
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
       background: var(--bg-color);
       text-align: center;
-      padding: 30px;
-      overflow-x: hidden;
+      padding: 20px;
       transition: background 0.8s ease;
+      min-height: 100vh;
     }
 
-    /* --- THE ANIMATED BORDERED TITLE --- */
     h1 {
-      color: #ff0055;
+      color: var(--text-main);
       background: white;
       display: inline-block;
       padding: 15px 40px;
-      border: 5px solid #ff0055;
+      border: 5px solid var(--text-main);
       border-radius: 60px;
-      position: relative;
-      z-index: 2;
-      box-shadow: 0 0 15px rgba(255, 0, 85, 0.3);
-      animation: borderGlow 3s infinite ease-in-out, floatTitle 3s infinite ease-in-out;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
-    @keyframes borderGlow {
-      0%, 100% { border-color: #ff0055; box-shadow: 0 0 10px rgba(255, 0, 85, 0.2); }
-      50% { border-color: #ff66a3; box-shadow: 0 0 25px rgba(255, 0, 85, 0.5); }
+    /* --- CHOICE SCREEN --- */
+    #choiceScreen { margin-top: 50px; }
+    .choice-container { display: flex; justify-content: center; gap: 20px; margin-top: 30px; flex-wrap: wrap; }
+    .choice-box {
+      background: white;
+      padding: 30px;
+      border-radius: 25px;
+      width: 200px;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 3px solid transparent;
     }
-
-    @keyframes floatTitle {
-      0%, 100% { transform: translateY(0) rotate(-1deg); }
-      50% { transform: translateY(-8px) rotate(1deg); }
-    }
-
-    /* --- THE STICKER --- */
-    .sticker-container {
-      width: 100px;
-      height: 100px;
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      z-index: 10;
-      animation: stickerFloat 3s infinite ease-in-out;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 60px;
-    }
-
-    .sticker-img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    @keyframes stickerFloat {
-      0%, 100% { transform: rotate(15deg) translateY(0); }
-      50% { transform: rotate(25deg) translateY(-20px); }
-    }
+    .choice-box:hover { transform: translateY(-10px); border-color: var(--text-main); }
+    .choice-box h2 { color: var(--text-main); margin-bottom: 10px; }
 
     /* --- CARD STYLES --- */
     .card {
       background: var(--card-color);
-      width: 350px;
-      margin: auto;
-      padding: 30px;
+      width: 320px;
+      padding: 25px;
       border-radius: 25px;
       box-shadow: 0 15px 35px rgba(0,0,0,0.2);
       color: white;
       position: relative;
+      margin: 10px auto;
     }
 
     input, select, .btn {
-      width: 95%;
-      padding: 14px;
-      margin: 10px 0;
-      border-radius: 12px;
-      border: 2px solid transparent;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      font-size: 14px;
-      outline: none;
-      box-sizing: border-box;
-    }
-
-    input:focus { border-color: #ffb3cc; }
-
-    label {
-      font-size: 11px;
-      display: block;
-      text-align: left;
-      margin-left: 5%;
-      margin-top: 12px;
-      text-transform: uppercase;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      color: #ffd1e0;
-    }
-
-    .btn {
-      font-weight: 900;
-      cursor: pointer;
-      text-transform: uppercase;
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      border: none;
-    }
-
-    .btn-main {
-      background-color: white;
-      color: rgb(255, 0, 85);
-      margin-top: 20px;
-    }
-
-    .btn-main:hover { 
-      background-color: #fff0f5;
-      transform: scale(1.05);
-    }
-
-    .btn-reset {
-      background-color: rgba(255, 255, 255, 0.2);
-      color: white;
-      font-size: 11px;
-      margin-top: 5px;
-    }
-
-    .result {
-      margin-top: 20px;
-      padding: 15px;
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 15px;
-      font-weight: 600;
-      border: 1px dashed rgba(255, 255, 255, 0.3);
-      line-height: 1.5;
-    }
-
-    .equivalent {
-      margin-top: 10px;
-      font-size: 0.85rem;
-      background: rgba(0, 0, 0, 0.1);
-      padding: 8px;
-      border-radius: 10px;
-      color: #fffdec;
-    }
-
-    /* --- HISTORY STYLES --- */
-    .history-section {
-      margin: 40px auto;
-      width: 350px;
-    }
-
-    .history-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-      padding: 0 5px;
-    }
-
-    .history-title {
-      color: white;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 13px;
-    }
-
-    .btn-clear {
-      background: none;
-      border: 1px solid white;
-      color: white;
-      font-size: 10px;
-      padding: 4px 8px;
-      border-radius: 20px;
-      cursor: pointer;
-      opacity: 0.7;
-      transition: 0.3s;
-    }
-
-    .btn-clear:hover { opacity: 1; background: white; color: #ff0055; }
-
-    .history-item {
-      background: white;
-      color: #ff0055;
-      margin-bottom: 8px;
+      width: 100%;
       padding: 12px;
-      border-radius: 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: bold;
+      margin: 8px 0;
+      border-radius: 10px;
+      border: none;
       font-size: 13px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      animation: bounceIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      box-sizing: border-box;
+      outline: none;
     }
 
-    @keyframes bounceIn {
-      from { opacity: 0; transform: scale(0.8) translateY(20px); }
-      to { opacity: 1; transform: scale(1) translateY(0); }
+    label { font-size: 10px; display: block; text-align: left; text-transform: uppercase; font-weight: 800; color: #ffd1e0; margin-top: 8px; }
+
+    .btn-main { background: white; color: var(--text-main); font-weight: 900; cursor: pointer; margin-top: 15px; text-transform: uppercase; }
+
+    /* --- BATTLE MODE --- */
+    .battle-container { display: none; justify-content: center; gap: 20px; flex-wrap: wrap; max-width: 900px; margin: auto; }
+    .card.winner { transform: scale(1.05); box-shadow: 0 0 30px var(--winner-glow); border: 4px solid var(--winner-glow); }
+    .vs-circle { align-self: center; background: white; color: var(--text-main); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; }
+
+    /* --- VERDICT BOX --- */
+    .verdict-box {
+      margin-top: 15px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      font-weight: bold;
+      border: 1px dashed rgba(255, 255, 255, 0.4);
     }
+
+    /* --- HISTORY --- */
+    .history-section { margin: 40px auto; width: 350px; text-align: left; }
+    .history-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .history-title { color: white; font-weight: 800; font-size: 12px; text-transform: uppercase; }
+    .btn-clear { background: rgba(255,255,255,0.2); color: white; border: 1px solid white; padding: 4px 10px; border-radius: 15px; font-size: 10px; cursor: pointer; }
+    .history-item { background: white; color: var(--text-main); padding: 12px; border-radius: 15px; margin-bottom: 8px; display: flex; justify-content: space-between; font-weight: bold; font-size: 13px; animation: slideUp 0.3s ease-out; }
+
+    @keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .hidden { display: none !important; }
+    .back-btn { margin-top: 20px; background: none; border: 1px solid white; color: white; padding: 6px 20px; border-radius: 20px; cursor: pointer; font-weight: bold; }
   </style>
 </head>
 <body onload="loadHistory()">
 
-<div class="sticker-container">
-  <img src="assets/stickers.png" class="sticker-img" onerror="this.style.display='none'; this.parentNode.innerHTML='✨';">
-</div>
+  <h1>Is It Worth It? 🤔</h1>
 
-<h1>Is It Worth It? 🤔</h1>
-
-<div class="card">
-  <input type="text" id="product" placeholder="Product name (e.g. Leather Jacket)">
-
-  <label>Price (₹)</label>
-  <input type="number" id="price" placeholder="How much is it?">
-  
-  <label>Frequency</label>
-  <select id="usage">
-    <option value="7">Every Single Day</option>
-    <option value="3">3 times a week</option>
-    <option value="1">Once a week</option>
-  </select>
-
-  <label>Estimated Lifespan</label>
-  <select id="lifespan">
-    <option value="4">Disposable (1 Month)</option>
-    <option value="26">Short term (6 Months)</option>
-    <option value="52">Standard (1 Year)</option>
-    <option value="156">Durable (3 Years)</option>
-    <option value="520">Investment (10 Years)</option>
-  </select>
-
-  <button class="btn btn-main" onclick="calculate()">Analyze Value</button>
-  <button class="btn btn-reset" onclick="resetForm()">Reset</button>
-
-  <div class="result" id="result">Waiting for details...</div>
-</div>
-
-<div class="history-section" id="historySection" style="display: none;">
-  <div class="history-header">
-    <div class="history-title">Recent Checks 📜</div>
-    <button class="btn-clear" onclick="clearHistory()">Clear All</button>
+  <div id="choiceScreen">
+    <div class="choice-container">
+      <div class="choice-box" onclick="showMode('single')">
+        <h2>Single 🔎</h2>
+        <p>Analyze one item.</p>
+      </div>
+      <div class="choice-box" onclick="showMode('battle')">
+        <h2>Battle ⚔️</h2>
+        <p>Compare two items.</p>
+      </div>
+    </div>
   </div>
-  <div id="historyList"></div>
-</div>
+
+  <div id="singleMode" class="hidden">
+    <div class="card">
+      <input type="text" id="nameS" placeholder="Item Name">
+      <label>Price (₹)</label>
+      <input type="number" id="priceS" placeholder="0.00">
+      <label>Usage Frequency</label>
+      <select id="usageS">
+        <option value="7">Daily</option>
+        <option value="3">3x Week</option>
+        <option value="1">Weekly</option>
+      </select>
+      <label>Lifespan</label>
+      <select id="lifeS">
+        <option value="4">1 Month</option>
+        <option value="26">6 Months</option>
+        <option value="52">1 Year</option>
+        <option value="156">3 Years</option>
+      </select>
+      <button class="btn btn-main" onclick="calculateSingle()">Analyze Verdict</button>
+      <div id="resS" class="verdict-box" style="display:none;"></div>
+    </div>
+    <button class="back-btn" onclick="goBack()">← Back</button>
+  </div>
+
+  <div id="battleMode" class="hidden">
+    <div class="battle-container" id="battleFlex">
+      <div class="card" id="cardA">
+        <input type="text" id="nameA" placeholder="Option A">
+        <label>Price (₹)</label>
+        <input type="number" id="priceA">
+        <label>Usage</label>
+        <select id="usageA"><option value="7">Daily</option><option value="1">Weekly</option></select>
+        <label>Lifespan</label>
+        <select id="lifeA"><option value="52">1 Year</option><option value="156">3 Years</option></select>
+        <div id="resA" style="margin-top:10px; font-weight:bold;"></div>
+      </div>
+      <div class="vs-circle">VS</div>
+      <div class="card" id="cardB">
+        <input type="text" id="nameB" placeholder="Option B">
+        <label>Price (₹)</label>
+        <input type="number" id="priceB">
+        <label>Usage</label>
+        <select id="usageB"><option value="7">Daily</option><option value="1">Weekly</option></select>
+        <label>Lifespan</label>
+        <select id="lifeB"><option value="52">1 Year</option><option value="156">3 Years</option></select>
+        <div id="resB" style="margin-top:10px; font-weight:bold;"></div>
+      </div>
+    </div>
+    <button class="btn btn-main" style="max-width:320px" onclick="calculateBattle()">Find Winner ⚔️</button>
+    <br><button class="back-btn" onclick="goBack()">← Back</button>
+  </div>
+
+  <div class="history-section" id="historySection" style="display: none;">
+    <div class="history-header">
+      <div class="history-title">Recent History 📜</div>
+      <button class="btn-clear" onclick="clearHistory()">Clear All</button>
+    </div>
+    <div id="historyList"></div>
+  </div>
 
 <script>
-let history = [];
+  let historyData = [];
 
-function calculate() {
-  const productInput = document.getElementById("product");
-  const priceInput = document.getElementById("price");
-  
-  const product = productInput.value || "Unnamed Item";
-  const price = parseFloat(priceInput.value);
-  const usesPerWeek = parseFloat(document.getElementById("usage").value);
-  const weeks = parseFloat(document.getElementById("lifespan").value);
-
-  if (!price || price <= 0) {
-    document.getElementById("result").innerHTML = "Please enter a price! 💸";
-    return;
+  function loadHistory() {
+    const saved = localStorage.getItem('worthItHistory');
+    if (saved) { historyData = JSON.parse(saved); updateHistoryUI(); }
   }
 
-  const totalUses = Math.floor(usesPerWeek * weeks);
-  const costPerUse = price / totalUses;
-
-  let verdict = "";
-  let bgColor = "#ffa5c0"; 
-  let comparison = "";
-
-  if (costPerUse < 10) {
-    verdict = "Absolute Steal! 🚀";
-    bgColor = "#a5ffcf";
-    comparison = "That's cheaper than a pack of gum per use! 🍬";
-  } else if (costPerUse < 30) {
-    verdict = "Great Value! 👍";
-    bgColor = "#a5e6ff";
-    comparison = "Costs as much as a cutting chai per use. ☕";
-  } else if (costPerUse < 100) {
-    verdict = "Decent Choice. 🤔";
-    bgColor = "#ffdaa5";
-    comparison = "Costs as much as a Vada Pav per use. 🍔";
-  } else if (costPerUse < 300) {
-    verdict = "Pricey... 💸";
-    bgColor = "#ffbba5";
-    comparison = "That's like buying a Movie Ticket every time! 🎬";
-  } else {
-    verdict = "Total Rip-off! ❌";
-    bgColor = "#ffa5a5";
-    comparison = "You're basically buying a fancy dinner every use! 🍱";
+  function showMode(mode) {
+    document.getElementById('choiceScreen').classList.add('hidden');
+    if (mode === 'single') document.getElementById('singleMode').classList.remove('hidden');
+    else {
+      document.getElementById('battleMode').classList.remove('hidden');
+      document.getElementById('battleFlex').style.display = 'flex';
+    }
   }
 
-  document.body.style.background = bgColor;
-  document.getElementById("result").innerHTML = `
-    <strong>Total uses:</strong> ${totalUses} times<br>
-    <strong>Cost per use:</strong> ₹${costPerUse.toFixed(2)}<br>
-    <div style="margin-top:8px; font-size: 1.1rem;">${verdict}</div>
-    <div class="equivalent">💡 ${comparison}</div>
-  `;
+  function goBack() {
+    location.reload(); // Simplest way to reset everything
+  }
 
-  saveToHistory(product, costPerUse.toFixed(2));
-}
-
-function saveToHistory(name, cost) {
-  const newItem = { name, cost };
-  // Check if same item was just added to prevent duplicates
-  if (history.length > 0 && history[0].name === name && history[0].cost === cost) return;
-
-  history.unshift(newItem);
-  if (history.length > 3) history.pop();
-  
-  localStorage.setItem('worthItHistory', JSON.stringify(history));
-  updateHistoryUI();
-}
-
-function loadHistory() {
-  const saved = localStorage.getItem('worthItHistory');
-  if (saved) {
-    history = JSON.parse(saved);
+  function saveToHistory(name, cost) {
+    historyData.unshift({ name, cost });
+    if (historyData.length > 3) historyData.pop();
+    localStorage.setItem('worthItHistory', JSON.stringify(historyData));
     updateHistoryUI();
   }
-}
 
-function clearHistory() {
-  if (confirm("Clear your search history?")) {
-    history = [];
-    localStorage.removeItem('worthItHistory');
-    updateHistoryUI();
-  }
-}
-
-function updateHistoryUI() {
-  const list = document.getElementById("historyList");
-  const section = document.getElementById("historySection");
-  
-  if (history.length === 0) {
-    section.style.display = "none";
-    return;
+  function updateHistoryUI() {
+    const section = document.getElementById('historySection');
+    if (historyData.length === 0) { section.style.display = 'none'; return; }
+    section.style.display = 'block';
+    document.getElementById('historyList').innerHTML = historyData.map(item => `
+      <div class="history-item"><span>${item.name}</span><span>₹${item.cost}/use</span></div>
+    `).join('');
   }
 
-  section.style.display = "block";
-  list.innerHTML = "";
-  
-  history.forEach(item => {
-    const div = document.createElement("div");
-    div.className = "history-item";
-    div.innerHTML = `<span>${item.name}</span> <span>₹${item.cost}/use</span>`;
-    list.appendChild(div);
-  });
-}
+  function clearHistory() {
+    if(confirm("Delete history?")) {
+      historyData = []; localStorage.removeItem('worthItHistory'); updateHistoryUI();
+    }
+  }
 
-function resetForm() {
-  document.getElementById("product").value = "";
-  document.getElementById("price").value = "";
-  document.getElementById("usage").selectedIndex = 0;
-  document.getElementById("lifespan").selectedIndex = 0;
-  document.getElementById("result").innerHTML = "Waiting for details...";
-  document.body.style.background = "#ffa5c0";
-}
+  function calculateSingle() {
+    const name = document.getElementById('nameS').value || "Item";
+    const p = parseFloat(document.getElementById('priceS').value);
+    const u = parseFloat(document.getElementById('usageS').value);
+    const l = parseFloat(document.getElementById('lifeS').value);
+    if(!p) return alert("Enter price!");
+
+    const cpu = (p / (u * l));
+    let verdict = "";
+    let color = "#ffa5c0";
+
+    if (cpu < 15) { verdict = "Absolute Steal! 🚀"; color = "#a5ffcf"; }
+    else if (cpu < 60) { verdict = "Great Value! 👍"; color = "#a5e6ff"; }
+    else if (cpu <= 150) { verdict = "Think twice... 🤔"; color = "#ffdaa5"; }
+    else { verdict = "Rip-off! ❌"; color = "#ffa5a5"; }
+
+    document.body.style.background = color;
+    const resDiv = document.getElementById('resS');
+    resDiv.style.display = "block";
+    resDiv.innerHTML = `₹${cpu.toFixed(2)} per use<br><span style="font-size:1.1rem">${verdict}</span>`;
+    saveToHistory(name, cpu.toFixed(2));
+  }
+
+  function calculateBattle() {
+    const pA = parseFloat(document.getElementById('priceA').value);
+    const pB = parseFloat(document.getElementById('priceB').value);
+    const uA = parseFloat(document.getElementById('usageA').value), lA = parseFloat(document.getElementById('lifeA').value);
+    const uB = parseFloat(document.getElementById('usageB').value), lB = parseFloat(document.getElementById('lifeB').value);
+
+    if(!pA || !pB) return alert("Enter prices!");
+
+    const cpuA = (pA / (uA * lA)).toFixed(2);
+    const cpuB = (pB / (uB * lB)).toFixed(2);
+
+    document.getElementById('resA').innerHTML = `₹${cpuA}/use`;
+    document.getElementById('resB').innerHTML = `₹${cpuB}/use`;
+
+    document.getElementById('cardA').classList.remove('winner');
+    document.getElementById('cardB').classList.remove('winner');
+
+    if (parseFloat(cpuA) < parseFloat(cpuB)) {
+      document.getElementById('cardA').classList.add('winner');
+      saveToHistory(`${document.getElementById('nameA').value || 'A'} (Win)`, cpuA);
+    } else {
+      document.getElementById('cardB').classList.add('winner');
+      saveToHistory(`${document.getElementById('nameB').value || 'B'} (Win)`, cpuB);
+    }
+  }
 </script>
-
 </body>
 </html>
