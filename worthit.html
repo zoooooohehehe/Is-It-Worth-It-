@@ -67,6 +67,22 @@
       0%, 100% { transform: rotate(15deg) translateY(0); }
       50% { transform: rotate(25deg) translateY(-20px); }
     }
+     .sticker2 {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      bottom: 25px;
+      left: 25px;
+      transform: rotate(15deg);
+      animation: stickerFloat 3s infinite ease-in-out;
+      z-index: 10;
+      object-fit: contain;
+    }
+
+    @keyframes stickerFloat {
+      0%, 100% { transform: rotate(15deg) translateY(0); }
+      50% { transform: rotate(20deg) translateY(-15px); }
+    }
 
     /* --- CARD STYLES --- */
     .card {
@@ -149,9 +165,14 @@
 </head>
 <body>
 
+<<<<<<< HEAD
 <div class="sticker-container">
   <img src="assets/stickers.png" class="sticker-img" onerror="this.style.display='none'; this.parentNode.innerHTML='✨';">
 </div>
+=======
+<img src="assets/stickers.png" class="sticker" id="userSticker" alt="✨">
+<img src="assets/stickers.png" class="sticker2" id="userSticker" alt="✨">
+>>>>>>> 1be3ebc92e89ed2251aad712e5293fb8285054a3
 
 <h1>Is It Worth It? 🤔</h1>
 
