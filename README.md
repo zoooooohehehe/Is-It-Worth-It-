@@ -35,10 +35,10 @@ there is another option called battle mode where we can compare worth of two pro
 ### Technologies/Components Used
 
 **For Software:**
-- Languages used: [ JavaScript
-- Frameworks used: [e.g., React, Django, Spring Boot]
-- Libraries used: [e.g., axios, pandas, JUnit]
-- Tools used: [e.g., VS Code, Git]
+- Languages used: [ HTML,CSS,Javascript]
+- Frameworks used: [None]
+- Libraries used: [Browser LocalStorage]
+- Tools used: [VS Code,Github,Netlify]
 
 **For Hardware:**
 - Main components: [List main components]
@@ -50,10 +50,12 @@ there is another option called battle mode where we can compare worth of two pro
 ## Features
 
 List the key features of your project:
-- Feature 1: [Description]
-- Feature 2: [Description]
-- Feature 3: [Description]
-- Feature 4: [Description]
+- Feature 1: [cost per use calculation]
+- Feature 2: [smart purchase verdict system]
+- Feature 3: [battle comparison mode]
+- Feature 4: [animated UI with floating stickers]
+- Feature 5: [dynamic background feedback]
+- Feature 6: [local history storage]
 
 ---
 
