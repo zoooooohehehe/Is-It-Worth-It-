@@ -4,43 +4,53 @@
   <title>Is It Worth It?</title>
   <style>
     body {
-      font-family: Arial;
+      font-family: 'Segoe UI', Arial, sans-serif;
       background: #ffa5c0;
       text-align: center;
       padding: 30px;
     }
-.sticker{
-    width:120px;
-    position:absolute;
-    top:20px;
-    right:20px;
-    transform:rotate(15deg);
-    animation:float 3s infinite;
-}
-
-@keyframes float{
-    0%{transform:rotate(15deg) translateY(0);}
-    50%{transform:rotate(15deg) translateY(-10px);}
-    100%{transform:rotate(15deg) translateY(0);}
-}
     .card {
       background: rgb(255, 0, 85);
       width: 350px;
       margin: auto;
-      padding: 20px;
+      padding: 25px;
       border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      color: white;
     }
     input, select, button {
       width: 90%;
-      padding: 10px;
+      padding: 12px;
       margin: 8px 0;
       border-radius: 6px;
       border: 1px solid #ccc;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
+    label {
+      font-size: 12px;
+      display: block;
+      text-align: left;
+      margin-left: 5%;
+      margin-top: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    button {
+      background-color: white;
+      color: rgb(255, 0, 85);
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    button:hover { background-color: #ffeef3; }
     .result {
       margin-top: 15px;
-      font-weight: bold;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
     }
   </style>
 </head>
@@ -51,32 +61,40 @@
 <h1>Is It Worth It? 🤔</h1>
 
 <div class="card">
-  <input type="text" id="product" placeholder="Enter product name">
+  <input type="text" id="product" placeholder="Enter the product name">
 
-  <input type="number" id="price" placeholder="Enter price (₹)">
+  <label>Price (₹)</label>
+  <input type="number" id="price" placeholder="Enter amount(₹):">
   
+  <label>How often will you use it?</label>
   <select id="usage">
-    <option value="10">Very Often (10/week)</option>
-    <option value="5">Sometimes (5/week)</option>
-    <option value="2">Rarely (2/week)</option>
+    <option value="7">Daily</option>
+    <option value="3">3 times a week</option>
+    <option value="1">Once a week</option>
   </select>
 
+  <label>How long should it last?</label>
+  <select id="lifespan">
+    <option value="4">Disposable (1 Month)</option>
+    <option value="26">Short term (6 Months)</option>
+    <option value="52">Standard (1 Year)</option>
+    <option value="156">Durable (3 Years)</option>
+    <option value="520">Investment (10 Years)</option>
+  </select>
 
-  <input type="number" id="weeks" placeholder="Number of weeks you plan to use">
+  <button onclick="calculate()">Check Verdict</button>
 
-  <button onclick="calculate()">Calculate</button>
-
-  <div class="result" id="result"></div>
+  <div class="result" id="result">Waiting for input...</div>
 </div>
 
 <script>
 function calculate() {
   const price = parseFloat(document.getElementById("price").value);
   const usesPerWeek = parseFloat(document.getElementById("usage").value);
-  const weeks = parseFloat(document.getElementById("weeks").value);
+  const weeks = parseFloat(document.getElementById("lifespan").value);
 
-  if (!price || !usesPerWeek || !weeks || weeks <= 0) {
-    document.getElementById("result").innerText = "Enter valid values!";
+  if (!price || price <= 0) {
+    document.getElementById("result").innerText = "Enter a valid price!";
     return;
   }
 
@@ -84,12 +102,15 @@ function calculate() {
   const costPerUse = price / totalUses;
 
   let verdict = "";
-  if (costPerUse < 50) verdict = "Totally worth it!!!!! 👍";
-  else if (costPerUse <= 150) verdict = "Probably worth it ig....🤔";
-  else verdict = "Totally Not Worth it!!! ❌";
+  if (costPerUse < 10) verdict = "Absolute Steal!\n Totally Worth It!! ✅";
+  else if (costPerUse < 50) verdict = "Good Value! 👍";
+  else if (costPerUse <= 150) verdict = "Think twice....it might not be worth it... 🤔";
+  else verdict = "Total Rip-off! ❌";
 
   document.getElementById("result").innerHTML =
-    `Cost per use: ₹${costPerUse.toFixed(2)} per use/week<br>${verdict}`;
+    `Est. Total Uses: ${Math.floor(totalUses)} times<br>
+     Cost per use: ₹${costPerUse.toFixed(2)}<br>
+     <strong>${verdict}</strong>`;
 }
 </script>
 
