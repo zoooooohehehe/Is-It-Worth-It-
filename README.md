@@ -40,10 +40,6 @@ there is another option called battle mode where we can compare worth of two pro
 - Libraries used: [Browser LocalStorage]
 - Tools used: [VS Code,Github,Netlify]
 
-**For Hardware:**
-- Main components: [List main components]
-- Specifications: [Technical specifications]
-- Tools required: [List tools needed]
 
 ---
 
@@ -59,133 +55,26 @@ List the key features of your project:
 
 ---
 
-## Implementation
-
-### For Software:
-
-#### Installation
-```bash
-[Installation commands - e.g., npm install, pip install -r requirements.txt]
-```
-
-#### Run
-```bash
-[Run commands - e.g., npm start, python app.py]
-```
-
-### For Hardware:
-
-#### Components Required
-[List all components needed with specifications]
-
-#### Circuit Setup
-[Explain how to set up the circuit]
-
----
-
 ## Project Documentation
 
 ### For Software:
 
 #### Screenshots (Add at least 3)
 
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot1 <img width="1333" height="1009" alt="Screenshot 2026-02-28 203225" src="https://github.com/user-attachments/assets/ba58b398-d19c-4b2e-bbd0-29511b6f77b6" />
+select two options-one is to check worth of a single product and other is to compare which product is more worth
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot2]
+<img width="1331" height="889" alt="Screenshot 2026-02-28 203302" src="https://github.com/user-attachments/assets/4d657e77-a494-4939-89a4-7fe16130f357" />
+this interface will appear when we click the first option where only one product's worth is calculated.here user can input the product name ,price,and its span 
 
-#### Diagrams
+![Screenshot3]
+<img width="1346" height="886" alt="Screenshot 2026-02-28 203352" src="https://github.com/user-attachments/assets/11842339-b0e1-4a73-a88f-fa086d51ae46" />
+this will make the user to decide which one to buy by calculating two product's worth
 
-**System Architecture:**
-
-![Architecture Diagram](docs/architecture.png)
-*Explain your system architecture - components, data flow, tech stack interaction*
-
-**Application Workflow:**
-
-![Workflow](docs/workflow.png)
-*Add caption explaining your workflow*
 
 ---
-
-### For Hardware:
-
-#### Schematic & Circuit
-
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
-
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
-
-#### Build Photos
-
-![Team](Add photo of your team here)
-
-![Components](Add photo of your components here)
-*List out all components shown*
-
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
-
----
-
-## Additional Documentation
-
-### For Web Projects with Backend:
-
-#### API Documentation
-
-**Base URL:** `https://api.yourproject.com`
-
-##### Endpoints
-
-**GET /api/endpoint**
-- **Description:** [What it does]
-- **Parameters:**
-  - `param1` (string): [Description]
-  - `param2` (integer): [Description]
-- **Response:**
-```json
-{
-  "status": "success",
-  "data": {}
-}
-```
-
-**POST /api/endpoint**
-- **Description:** [What it does]
-- **Request Body:**
-```json
-{
-  "field1": "value1",
-  "field2": "value2"
-}
-```
-- **Response:**
-```json
-{
-  "status": "success",
-  "message": "Operation completed"
-}
-```
-
-[Add more endpoints as needed...]
-
----
-
-### For Mobile Apps:
-
-#### App Flow Diagram
-
-![App Flow](docs/app-flow.png)
 *Explain the user flow through your application*
 
 #### Installation Guide
