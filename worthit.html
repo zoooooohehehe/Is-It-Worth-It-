@@ -9,13 +9,19 @@
       text-align: center;
       padding: 30px;
     }
-  .sticker {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 150px;
-      transform: rotate(-20deg);
-      transform-origin: top left;
+.sticker{
+    width:120px;
+    position:absolute;
+    top:20px;
+    right:20px;
+    transform:rotate(15deg);
+    animation:float 3s infinite;
+}
+
+@keyframes float{
+    0%{transform:rotate(15deg) translateY(0);}
+    50%{transform:rotate(15deg) translateY(-10px);}
+    100%{transform:rotate(15deg) translateY(0);}
 }
     .card {
       background: rgb(255, 0, 85);
