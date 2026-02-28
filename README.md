@@ -22,10 +22,11 @@ A simple interactive website that calculates whether the product purchase you ma
 [A simple interactive website which calculates if the product purchase is worth it or not]
 
 ### The Problem statement
-[What problem are you solving?]
+[to know the product is worth it or not and to compare which one is more worth]
 
 ### The Solution
-[How are you solving it?]
+[created a website where user will input product name , how much time they will use and also the span of the product so it will calculate and return whether we should buy it or not
+there is another option called battle mode where we can compare worth of two products so that user can decide which one to buy]
 
 ---
 
@@ -34,10 +35,10 @@ A simple interactive website that calculates whether the product purchase you ma
 ### Technologies/Components Used
 
 **For Software:**
-- Languages used: [e.g., JavaScript, Python, Java]
+- Languages used: [ JavaScript
 - Frameworks used: [e.g., React, Django, Spring Boot]
 - Libraries used: [e.g., axios, pandas, JUnit]
-- Tools used: [e.g., VS Code, Git, Docker]
+- Tools used: [e.g., VS Code, Git]
 
 **For Hardware:**
 - Main components: [List main components]
@@ -421,3 +422,8 @@ This project is licensed under the [LICENSE_NAME] License - see the [LICENSE](LI
 ---
 
 Made with ❤️ at TinkerHub
+
+
+
+
+
