@@ -16,7 +16,7 @@ A simple interactive website that calculates whether the product purchase you ma
 - Member 2: [Lemiya Siyad] - [AISAT]
 
 ### Hosted Project Link
-[file:///C:/Users/HP/OneDrive/Desktop/worth/worthit.html]
+file:///C:/Users/HP/OneDrive/Desktop/worth/worthit.html
 
 ### Project Description
 [A simple interactive website which calculates if the product purchase is worth it or not]
